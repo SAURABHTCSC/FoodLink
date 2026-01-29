@@ -2,60 +2,22 @@
 <html>
 <head>
   <base href="/">
-
-  <title>FoodLink | Zero Hunger Network</title>
-  <meta name="description" content="FoodLink is a real-time food rescue network connecting donors with NGOs to prevent food wastage. Powered by AI & Flutter.">
-  <meta name="keywords" content="foodlink, zero hunger, food rescue, ngo, flutter, hackathon, real-time logistics">
-
-  <meta property="og:title" content="FoodLink: Project Zero Hunger">
-  <meta property="og:description" content="Live Simulation Dashboard. Tracking real-time food redistribution metrics.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&q=80&w=1200">
-  <meta property="og:url" content="https://foodlink-live.netlify.app">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&q=80&w=1200">
-
-  <meta name="theme-color" content="#4ADE80"> <meta charset="UTF-8">
+  <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <title>FoodLink Simulation</title>
 
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-title" content="FoodLink">
-  <link rel="icon" type="image/png" href="favicon.png"/>
-
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_REAL_ID"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-YOUR_REAL_ID');
-  </script>
-
+  <meta name="description" content="FoodLink Real-time Network">
+  <link rel="manifest" href="manifest.json">
   <script src="flutter.js" defer></script>
 </head>
-<body style="background-color: #0F172A; margin: 0; overflow: hidden;">
-<div id="loading" style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; color: #4ADE80; font-family: monospace;">
-  <div style="font-size: 50px; margin-bottom: 20px;">🥗</div>
-  <div style="font-size: 24px; font-weight: bold; letter-spacing: 3px;">FOODLINK NETWORK</div>
-  <div style="font-size: 14px; color: #94A3B8; margin-top: 10px;">ESTABLISHING SECURE UPLINK...</div>
-  <div class="loader" style="margin-top: 30px; width: 50px; height: 3px; background: #4ADE80; animation: loading 1.5s infinite;"></div>
-</div>
-
-<style>
-  @keyframes loading { 0% { width: 0; } 50% { width: 150px; } 100% { width: 0; } }
-</style>
-
+<body>
 <script>
   window.addEventListener('load', function(ev) {
-    // Download main.dart.js
     _flutter.loader.loadEntrypoint({
-      serviceWorker: {
-        serviceWorkerVersion: serviceWorkerVersion,
-      },
       onEntrypointLoaded: function(engineInitializer) {
-        engineInitializer.initializeEngine().then(function(appRunner) {
-          document.getElementById("loading").style.opacity = '0';
-          setTimeout(() => document.getElementById("loading").remove(), 500);
+        engineInitializer.initializeEngine({
+           renderer: "html" // Safe mode for Netlify
+        }).then(function(appRunner) {
           appRunner.runApp();
         });
       }
