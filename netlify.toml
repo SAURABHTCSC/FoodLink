@@ -1,12 +1,12 @@
 [build]
-# This tells Netlify where your ready-to-go website is
+# This tells Netlify: "The website is already inside this folder"
 publish = "build/web"
 
-# This is a dummy command to prevent Netlify from trying to build it
+# This dummy command prevents Netlify from trying to run "flutter build"
 command = "echo 'Serving Pre-built Flutter App'"
 
 [[redirects]]
-# This fixes the "Refresh 404 Error" on Flutter Web
+# This fixes the "Refresh Page" error on Flutter apps
 from = "/*"
 to = "/index.html"
 status = 200
